@@ -301,6 +301,7 @@ public abstract class Task<E> implements Poolable {
 		public <T> Task<T> cloneTask(Task<T> task) {
 			Task poolTask = Pools.obtain(task.getClass());
 			task.copyTo(poolTask);
+			poolTask.guard = task.guard == null ? null : task.guard.cloneTask();
 			return poolTask;
 		}
 
