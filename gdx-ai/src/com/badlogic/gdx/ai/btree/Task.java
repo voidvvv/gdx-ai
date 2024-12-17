@@ -247,6 +247,7 @@ public abstract class Task<E> implements Poolable {
 			getChild(i).resetTask();
 		}
 		status = Status.FRESH;
+		control = null;
 	}
 
 	/** Clones this task to a new one. If you don't specify a clone strategy through {@link #TASK_CLONER} the new task is
